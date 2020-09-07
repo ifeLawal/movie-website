@@ -1,23 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Routes from './routes';
 
 const MOUNT = document.querySelector('#root');
 const renderApp = Comp => ReactDOM.render(Comp, MOUNT);
 
 if(module.hot) {
-  module.hot.accept('./App', () => {
+  module.hot.accept('./routes', () => {
     // accept hot change request
-    const NextApp = require('./App').default;
-    renderApp(<NextApp />);
+    const NextRoutes = require('./routes').default;
+    renderApp(<NextRoutes />);
   })
 }
 
-renderApp(<App />);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+renderApp(<Routes />);

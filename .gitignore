@@ -10,6 +10,7 @@
 
 # production
 /build
+/myReadMe
 
 # misc
 .DS_Store

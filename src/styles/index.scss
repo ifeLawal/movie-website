@@ -1,0 +1,10 @@
+@import "normalize.css";
+@import "./variables.scss";
+@import "./body.scss";
+@import "./container.scss";
+
+@import "../components/Sidebar/sidebar.scss";
+
+body {
+    border: 1px solid $red;
+}
