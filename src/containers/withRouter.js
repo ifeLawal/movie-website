@@ -3,9 +3,10 @@ import {
     BrowserRouter as Router
 } from 'react-router-dom'
 
-export const withRouter = Wrapped => ({props}) => {
+export const withRouter = Wrapped => props => {
+    // const basename = props.basename || "";
     return (
-        <Router>
+        <Router basename="/">
             <Wrapped {...props} />
         </Router>
     )
