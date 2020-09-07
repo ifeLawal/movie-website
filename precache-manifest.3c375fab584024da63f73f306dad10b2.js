@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f7817503fa293648bf550b942fa9ce29",
+    "revision": "dafa6095d1f36550446659f4b7a9f1a2",
     "url": "/ifelawal.github.io/movie-website/index.html"
   },
   {
-    "revision": "1d2e360b872d82079b88",
+    "revision": "4fb2a8f3c5f0059a6119",
     "url": "/ifelawal.github.io/movie-website/static/css/main.aa2c31b0.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ifelawal.github.io/movie-website/static/js/2.4d508fba.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1d2e360b872d82079b88",
-    "url": "/ifelawal.github.io/movie-website/static/js/main.df4dd4eb.chunk.js"
+    "revision": "4fb2a8f3c5f0059a6119",
+    "url": "/ifelawal.github.io/movie-website/static/js/main.5ad0be58.chunk.js"
   },
   {
     "revision": "7a0e1db4bb833860ec13",
