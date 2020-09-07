@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ifelawal.github.io/movie-website/precache-manifest.0b95a79bdb11ca2e39054395a38ae6fe.js"
+  "/ifelawal.github.io/movie-website/precache-manifest.38a10466ebf2722ee3c8969e781cb100.js"
 );
 
 self.addEventListener('message', (event) => {
