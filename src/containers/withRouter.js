@@ -6,7 +6,7 @@ import {
 export const withRouter = Wrapped => props => {
     // const basename = props.basename || "";
     return (
-        <Router basename="/">
+        <Router basename={process.env.PUBLIC_URL + "/"}>
             <Wrapped {...props} />
         </Router>
     )

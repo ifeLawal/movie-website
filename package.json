@@ -1,6 +1,7 @@
 {
   "name": "movie-app",
   "version": "0.1.0",
+  "homepage": "ifelawal.github.io/movie-website",
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",
@@ -72,7 +73,9 @@
     "start:styles": "npm run build:styles -- --watch",
     "build:styles": "./node_modules/.bin/postcss -c postcss.config.js src/styles/index.scss -o src/index.css",
     "build:react": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "predeploy": "npm-run-all build:*",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

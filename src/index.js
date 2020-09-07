@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Routes from './routes';
+import {
+  HashRouter
+} from 'react-router-dom'
 
 const MOUNT = document.querySelector('#root');
 const renderApp = Comp => ReactDOM.render(Comp, MOUNT);
