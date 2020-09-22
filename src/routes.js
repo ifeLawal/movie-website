@@ -13,11 +13,10 @@ import About from './views/About/About'
 export const Routes = (props) => {
     return (
             <div className="app">
-                {/* This where our components and views go */}
                 <Route 
                     path="/" exact
                     component={Home}
-                />          {/* Path specifies where the person is going */}
+                />          
                 <Route
                     path="/about"
                     render={(renderProps) => 

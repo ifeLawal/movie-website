@@ -405,35 +405,39 @@ body, #root, .app, .wrapper {
 }
 
 .sidebar {
-    background: rgba(75, 51, 209, 1);
-    background: linear-gradient(to bottom, rgba(75, 51, 209, 1), rgba(90, 48, 181, 1));
-    padding: 25px;
-    color: rgba(255, 255, 255, 1);
+  background: rgba(75, 51, 209, 1);
+  background: linear-gradient(to bottom, rgba(75, 51, 209, 1), rgba(90, 48, 181, 1));
+  padding: 25px;
+  color: rgba(255, 255, 255, 1);
 }
 
 .sidebar .heading {
-        font-size: 1.2em;
-    }
+    font-size: 1.2em;
+  }
 
 .sidebar ul {
-        list-style-type: none;
-    }
+    list-style-type: none;
+  }
 
 .sidebar ul li a {
-                color: rgba(255, 255, 255, 1);
-                text-decoration: none
-            }
+        color: rgba(255, 255, 255, 1);
+        text-decoration: none
+      }
 
-.sidebar ul li a.active { 
-                    text-decoration: underline;
-                }
+.sidebar ul li a.active {
+          text-decoration: underline;
+        }
+
+.sidebar ul li a:hover {
+          text-decoration: underline;
+        }
 
 @media (min-width: 480px) {
 
 .sidebar {
-        margin-right: 15px
+    margin-right: 15px
 }
-    }
+  }
 
 body {
     border: 1px solid rgba(204, 77, 77, 1);

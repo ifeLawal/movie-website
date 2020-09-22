@@ -11,6 +11,7 @@
 # production
 /build
 /myReadMe
+wallaby.js
 
 # misc
 .DS_Store

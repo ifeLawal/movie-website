@@ -1,11 +1,18 @@
 const Helper = (function() {
 
     function shuffle() {
-        return shuffleArr(locationList);
+        shuffleArr(locationList);
+        return locationList;
+    }
+
+    function returnNNumMovies(num=1) {
+        if(num < locationList.length) {
+            return locationList.slice(0, num);
+        }
+        return -1;
     }
 
     // random shuffle array code from stackoverflow
-    // used to shuffle board order
     /**
      * Randomly shuffle an array
      * https://stackoverflow.com/a/2450976/1293256
@@ -5635,10 +5642,11 @@ const Helper = (function() {
             "totalSeasons": "2"
         }
     ]
-
+    
     return { 
         locationList : shuffleArr(locationList),
         shuffle,
+        returnNNumMovies
     }
 }());
 
