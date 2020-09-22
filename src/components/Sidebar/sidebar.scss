@@ -8,6 +8,21 @@
     .heading {
         font-size: 1.2em;
     }
+
+    ul {
+        list-style-type: none;
+        
+        li {
+            a {
+                color: $white;
+                text-decoration: none;                
+
+                &.active { 
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
     
     @media (min-width: $large-screen) {
         margin-right: 15px;

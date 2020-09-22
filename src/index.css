@@ -415,6 +415,19 @@ body, #root, .app, .wrapper {
         font-size: 1.2em;
     }
 
+.sidebar ul {
+        list-style-type: none;
+    }
+
+.sidebar ul li a {
+                color: rgba(255, 255, 255, 1);
+                text-decoration: none
+            }
+
+.sidebar ul li a.active { 
+                    text-decoration: underline;
+                }
+
 @media (min-width: 480px) {
 
 .sidebar {

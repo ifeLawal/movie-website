@@ -1,7 +1,7 @@
 {
   "name": "movie-app",
   "version": "0.1.0",
-  "homepage": "ifelawal.github.io/movie-website",
+  "homepage": "http://ifelawal.github.io/movie-website",
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",
@@ -68,7 +68,7 @@
   },
   "scripts": {
     "start": "npm-run-all --parallel start:*",
-    "build": "npm-run-all build:*",
+    "build": "npm-run-all build:* && cp build/index.html build/404.html",
     "start:react": "node scripts/start.js",
     "start:styles": "npm run build:styles -- --watch",
     "build:styles": "./node_modules/.bin/postcss -c postcss.config.js src/styles/index.scss -o src/index.css",
