@@ -6,7 +6,7 @@ const Helper = (function() {
     }
 
     function returnNNumMovies(num=1) {
-        if(num < locationList.length) {
+        if(num < locationList.length && num > 0) {
             return locationList.slice(0, num);
         }
         return -1;

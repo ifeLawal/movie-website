@@ -1,3 +1,4 @@
+import { Helper } from './helpers'
 // constants
 const BASE_URL = "localhost:8000"
 const defaultFetchOpts = {}
@@ -43,12 +44,15 @@ export const makeFetch = (path, opts={}) => {
             throw new Error(err);
         }) 
 }
-export const makeAuthFetch = (path, opts={}) => {
-    const fetchOpts = {
-        ...opts,
-        headers: {
-            'Authorization': `Bearer ${AUTH_TOKEN}`
+export const makeAuthFetch = (path, opts={}, useFake=false) => {
+    if(!useFake) {
+        const fetchOpts = {
+            ...opts,
+            headers: {
+                'Authorization': `Bearer ${AUTH_TOKEN}`
+            }
         }
+        return makeFetch(path, fetchOpts);
     }
-    return makeFetch(path, fetchOpts);
+    return Helper.locationList;
 }

@@ -1,8 +1,15 @@
 import { Helper } from './helpers'
 
 describe("testing Helper data operations", () => {
-    it("returns 1 location list with an index of 1", () => {
-        expect(Helper.returnNNumMovies(1).length).toBe(1);
+    it("returns 5 location list with an index of 5", () => {
+        expect(Helper.returnNNumMovies(5).length).toBe(5);
+    })
+    
+    it ('returns 1 with no index', () => {
+        expect(Helper.returnNNumMovies().length).toBe(1);
+    })
+    it("returns -1 with an index of 0", () => {
+        expect(Helper.returnNNumMovies(0)).toBe(-1)
     })
 
     it("returns -1 because the index is too big", () => {
