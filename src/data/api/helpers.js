@@ -1,10 +1,20 @@
 const Helper = (function() {
 
+    // using the shuffle array method to shuffle the list
+    // beware as this does mutate the list directly
+    // considered creating a new list, but was worried about memory concerns
     function shuffle() {
-        shuffleArr(locationList);
-        return locationList;
+        return shuffleArr(locationList);
     }
 
+    // get a movie by id
+    // id is incremented like a counter so it is safe to check the length
+    // to confirm the id passed is within our id options
+    function getMovieById(id) {
+        return id < locationList.length && id >= 0 ? locationList[id].movie : -1;
+    }
+
+    // get a certain amount of movies, or just one movie
     function returnNNumMovies(num=1) {
         if(num < locationList.length && num > 0) {
             return locationList.slice(0, num);
@@ -41,7 +51,9 @@ const Helper = (function() {
     };
 
     const locationList = [
-        {
+    {
+        "id": 0,
+        "movie": {
             "title": "They Came Together",
             "year": "2014",
             "summary": "Joel (Paul Rudd), a candy company executive, threatens to close down Molly's (Amy Poehler) mom-and-pop candy store, but the unlikely pair begin to fall in love.",
@@ -100,8 +112,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Lionsgate",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 1,
+        "movie": {
             "title": "Alien Space Avenger",
             "year": "1989",
             "summary": "A group of extraterrestrial criminals go on the run from a powerful intergalactic bounty hunter in this sci-fi action film. The alien offenders eventually crash land in New York City and take over a series of human bodies in order to hide from their pursuer.",
@@ -150,8 +165,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "A I P Home Video",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 2,
+        "movie": {
             "title": "Miss Congeniality 2: Armed & Fabulous",
             "year": "22005",
             "summary": "The FBI agent Gracie Hart (Sandra Bullock) is assigned to promote the FBI, touring with the brutalagent Sam Fuller as her bodyguard. While traveling around the country, her friend and Miss USA is kidnapped with StanFields, and Gracie decides to investigate the abduction in Las Vegas by her own and against the direct orders of local chief Collins.",
@@ -210,8 +228,11 @@ const Helper = (function() {
             "BoxOffice": "$47,100,000",
             "Production": "Warner Bros.",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 3,
+        "movie": {
             "title": "Most Beautiful Island",
             "year": "2017",
             "summary": "Most Beautiful Island chronicles one harrowing day in the life of Luciana (Ana Asensio), a young immigrant woman struggling to make ends meet while striving to escape her past. As Luciana's day unfolds, she is whisked, physically and emotionally, through a series of troublesome and unforeseeable extremes. Before her day is done, she inadvertently finds herself a central participant in a cruel game where lives are placed at risk, and psyches are twisted and broken for the perverse entertainment of a privileged few.",
@@ -268,8 +289,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Samuel Goldwyn Films",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 4,
+        "movie": {
             "title": "Down to You",
             "year": "2000",
             "summary": "Al Connelly (Freddie Prinze Jr.) meets the girl of his dreams, freshman Imogen (Julia Stiles), and true love abounds. Thetwo engage on a whirlwind courtship--they pick a song, eat a cake together, even make love. But Imogen's fear of lost youth causes her to push away from Al, andthey go their separate ways. Al attempts to rebound from the relationship, determined to forget Imogen, and he goes to desperate measures to do so. The story istold from the points of view of both Al and Imogen.",
@@ -325,8 +349,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Miramax",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 5,
+        "movie": {
             "title": "Can You Ever Forgive Me?",
             "year": "2018",
             "summary": "Lee Israel (Melissa McCarthy) made her living in the 1970's and 80's profiling the likes of Katharine Hepburn, Tallulah Bankhead, Estee Lauder and journalist Dorothy Kilgallen. When Lee is no longer able to get published because she has fallen out of step with current tastes, she turns her art form to deception, abetted by her loyal friend Jack (Richard E. Grant).",
@@ -385,8 +412,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Fox Searchlight Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 6,
+        "movie": {
             "title": "Single White Female",
             "year": "1992",
             "summary": "Allison Jones (Bridget Fonda) is a successful software designer working in bustling Manhattan, along with hersuccessful career, she lives in a very trendy apartment and has a handsome boyfriend Sam. But when she finds out that Sam has been cheating on her, she has nooption but to start out on her own. Determined not to lose her apartment, she advertises for a roommate. After failed interviews, she finally comes across Hedra Carlson (Jennifer Jason Leigh). At first everything seems to be running smoothly, with the self-centred Allison enjoying Hedra's company and her constant willingness to please. But things start to turn strange when Hedra begins copying Allison, her hair style, the clothes she wears and even the way she acts. When Allison decidesto give her ex boyfriend, Sam, another chance and asks him to move in, she asks Hedra to look for new accommodation, unleashing a very weird and psychotic side to her roommate.",
@@ -442,8 +472,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Columbia Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 7,
+        "movie": {
             "title": "Confessions of a Shopaholic",
             "year": "2009",
             "summary": "Struggling with her debilitating obsession with shopping and the sudden collapse of her income source, Rebecca Bloomwood (Isla Fisher)unintentionally lands a job writing for a financial magazine after a drunken letter-mailing mix-up. Ironicallywriting about the very consumer caution of which she herself has not abided, Rebecca's innovative comparisons and unconventional metaphors for economics grants her criticalacclaim, public success, and the admiration of her supportive boss Luke. But as she draws closer to her ultimate goal of writing for renowned fashion magazine Alette, shequestions her true ambitions and must determine if overcoming her \"shopaholic\" condition will bring her real happiness.",
@@ -502,8 +535,11 @@ const Helper = (function() {
             "BoxOffice": "$44,239,688",
             "Production": "Walt Disney Studios",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 8,
+        "movie": {
             "title": "The Odd Couple",
             "year": "1968",
             "summary": "Felix Ungar (Jack Lemmon) has just broken up with his wife. Despondent, he goes to kill himself butis saved by his friend Oscar Madison (Walter Matthau). With nowhere else to go, Felix is urged by Oscar to move in with him, at least for a while. The only problemis that Felix is neat, tidy, and neurotic, whereas Oscar is slovenly and casual.",
@@ -563,8 +599,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Paramount Home Video",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 9,
+        "movie": {
             "title": "The Anomaly",
             "year": "2014",
             "summary": "The travails of a traumatized ex-soldier who wakes up in the back of a van, alongside akidnapped boy, to find that he only has only nine minutes and 37 seconds of consciousness to work out why and how he got there.",
@@ -617,8 +656,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "N/A",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 10,
+        "movie": {
             "title": "Desperately Seeking Susan",
             "year": "1985",
             "summary": "Roberta (Rosanna Arquette) is a housewife, bored with her life and feeling ignored by her hot tub-selling husband.The one thing that interests her is the excitement and romance she finds in following the relationship of Jim (Robert Joy) and Susan (Madonna),who communicate through their travels using the personal ads. Susan is having her own fun when she sees the ad to meetJim in NYC. Unfortunately, Susan is unaware that the last man she was with is entangled with the mob. So when Robertashows up to actually see her idol, she takes it upon herself to emulate her. After a bout of amnesia, she is mistakenfor Susan and must survive with Susan, Jim, her husband, and the mob - scrambling for the truth. Until Jim's best friend comes to the rescue.",
@@ -675,8 +717,11 @@ const Helper = (function() {
             "BoxOffice": "$27,400,000",
             "Production": "MGM Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 11,
+        "movie": {
             "title": "Marathon Man",
             "year": "1976",
             "summary": "Thomas Babington \"Babe\" Levy (Dustin Hoffman) is a history Ph.D. candidate and avid runner researching the same field as his father, who committed suicide after being investigated during the Joseph McCarthy era. Babe's brother, Henry (Roy Scheider), better known as \"Doc\", poses as an oil company executive but, unknown to Babe, is actually a U.S. government agent working for a secret agency headed by Director Peter Janeway (William Devane).",
@@ -735,8 +780,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Paramount Home Video",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 12,
+        "movie": {
             "title": "Buying the Cow",
             "year": "2002",
             "summary": "David Collins (Jerry O'Connell) is a commmitment-shy Los Angeles yuppie whose girlfriend of many years,advertising executive Sarah (Bridgette Wilson-Sampras), gives him an ultimatum: commit or get out. David has two months to decide if he wants to stay with Sarah as she leaves townfor a job in New York. Following the advice from his more outgoing friends, David hits the dating scene as he tries to find his one and only soul mate, amysterious woman he sees again and again, but always gets away before he can talk to her.",
@@ -786,8 +834,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Destination Films",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 13,
+        "movie": {
             "title": "Turk 182",
             "year": "1821985",
             "summary": "Jimmy Lynch (Timothy Hutton) is angry because his older brother, who was injured as a result of an off dutyfire rescue, is denied benefits by the city. At the same time, Mayor Tyler is embroiled in a political scandal that he denies all previous knowledge of.Jimmy begins painting \"Tyler Knew, Turk 182\" as an embarrassment to the mayor. The mayor is furious at this grafitti appearing all over the city and ordersthe police to find the artist. Jimmy's \"Turk 182\" spraypaints continue to appear.",
@@ -844,8 +895,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Anchor Bay Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 14,
+        "movie": {
             "title": "Forgetting the Girl",
             "year": "2012",
             "summary": "Haunted by a traumatic history, photographer Kevin Wolfe (Christopher Denham) struggles tosystematically forget all his bad memories, but erasing his past threatens to consume his future. Kevin is obsessed with finding a girl who can help him forgethis unpleasant past. However, all his encounters with the opposite sex inevitably go afoul, creating more awkward experiences than he can cope with. As therejections mount, Kevin's futile search for happiness and love becomes overwhelmingly turbulent, forcing him to take desperate measures. Shot in a varietyof NYC locales, from Hell's Kitchen to Greenpoint, Forgetting the Girl is a gritty vision of the city and its denizens. The tightly-woven drama blendsrecollections with reality to craft an intense character study of the psychologically-scarred protagonist. As beautiful as it is dark, the tense narrativeslowly boils under the surface until it unleashes an unsettling climax that will not be easily forgotten.",
@@ -903,8 +957,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Film Movement",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 15,
+        "movie": {
             "title": "Malcolm X",
             "year": "1992",
             "summary": "Biography of Malcolm X, the famous African American leader. Born Malcolm Little, his father(a minister) was killed by the Ku Klux Klan. He became a gangster, and while in jail discovered the Nation of Islam writings of Elijah Muhammad. He preaches theteachings when let out of jail, but later on goes on a pilgrimage to the city of Mecca, there he converts to the original Islamic religion and becomes a SunniMuslim. He changes his name to El-Hajj Malik Al-Shabazz and stops his anti-white teachings, as he realises the error of his mistakes. He is later on assasinatedand dies a Muslim Martyr.",
@@ -963,8 +1020,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Warner Bros.",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 16,
+        "movie": {
             "title": "For Richer or Poorer",
             "year": "1997",
             "summary": "Brad (Tim Allen) and Caroline Sexton (Kirstie Alley) were incredibly rich and incredibly miserable. Until something unbelievable happened... their accountant robbed them dry. Now they're on the run from the IRS and hiding out in the one place no one will ever look for them... Amish country. While their lawyer sorts things out in New York, they've got to do their best to blend in and are failing miserably! Hard work may prove to be more difficult than hard time as the Sextons are learning how to milk cows, plow fields and fall in love all over again.",
@@ -1019,8 +1079,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Universal Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 17,
+        "movie": {
             "title": "Big Business",
             "year": "1988",
             "summary": "In the 1940s in the small town of Jupiter Hollow, two sets of identical twins are born in the samehospital on the same night. One set to a poor local family and the other to a rich family just passing through. The dizzy nurse on duty accidentally mixes thetwins unbeknown to the parents. Our story flashes forward to the 1980s where the mismatched sets of twins are about to cross paths following a big business dealto closedown the Jupiter Hollow factory.",
@@ -1077,8 +1140,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "N/A",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 18,
+        "movie": {
             "title": "Something Borrowed",
             "year": "2011",
             "summary": "Rachel (Ginnifer Goodwin) is a lawyer. When she was in law school she fell for another student Dex (Colin Egglesfield) who comes from an affluent family. But she's too shy to say anything. When Dex meets her best friend Darcy (Kate Hudson) who treats her like dirt sometimes, who was visiting her, she makes a move on him and gets him. Eventually they get engaged and Darcy asks Rachel to be her Maid of Honor. But Rachel stills has feelings for Dex and still can't say anything. But when Darcy throws her a birthday party and Dex is there. When she and gets Dex are alone, she blurts out that she had a thing for him in college which surprised him. And after drinking a little they spend the night together. They try to forget the whole thing but can't but agree that it means nothing. But Ethan, Rachel close friend tells her that she'll spend her entire life regretting that if she does nothing.",
@@ -1137,8 +1203,11 @@ const Helper = (function() {
             "BoxOffice": "$39,000,000",
             "Production": "Warner Bros.",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 19,
+        "movie": {
             "title": "Purple Violets",
             "year": "2007",
             "summary": "Patti Petalson (Selma Blair) is a promising writer, but her marriage and conventional job keep her from her dream. She longs to return to her writing, especially after running into her first love Brian Callahan (Patrick Wilson), a successful crime novelist. Kate (Debra Messing) is Patti's best friend since college. She's a tough-talking schoolteacher who plays therapist to all Patti's problems, while she's got a few of her own. Despite Brian's gorgeous Tribeca loft and perfect house in the Hamptons, he longs to write works of greater literary value. Michael Murphy (Edward Burns), his lawyer and best friend from college still carries a flame for his former girlfriend Kate, even though their relationship ended badly years ago. She holds a major grudge, but he would go to any length just to win Kate back, knowing his feelings for her never went away. He tried to forget over the years but since he spotted Kate in the restaurant she was all he could think about. When Patti sells Murphy a new apartment, and Brian publishes his personal novel, these old friends reconnect in unexpected ways with surprising results.",
@@ -1189,8 +1258,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Lucky Day Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 20,
+        "movie": {
             "title": "Nine 1/2 Weeks",
             "year": "121986",
             "summary": "In the often impersonal city of New York, a city that never sleeps, a city filled with the shadows and secretsof its citizens, a man and a woman conduct a highly sensual sexual affair. John (Mickey Rourke), a wealthy businessman,seduces a beautiful art assistant, Elizabeth (Kim Basinger), who is recently divorced after a three-year marriage.",
@@ -1212,8 +1284,11 @@ const Helper = (function() {
             "neighborhood": "Little Italy, Manhattan",
             "comment": "",
             "place_name": "Mulberry Street Bar, 176 1/2 Mulberry St, New York, New York 10013, United States"
-        },
-        {
+        }
+    },
+    {
+        "id": 21,
+        "movie": {
             "title": "Die Hard: With a Vengeance",
             "year": "1995",
             "summary": "John McClane (Bruce Willis) is now almost a full-blown alcoholic and is suspended from the NYPD.But when a bomb goes off in the Bonwit Teller Department Store the police go insane trying to figure out what's going on. Soon, a man named Simon calls and asksfor McClane. Simon tells Inspector Walter Cobb that McClane is going to play a game called \"Simon Says\". He says that McClane is going to do the tasks heassigns him. If not, he'll blow off another bomb. With the help of a Harlem electrician, John McClane must race all over New York trying to figure out thefrustrating puzzles that the crafty terrorist gives him. But when a bomb goes off in a subway station right by the Federal Reserve (the biggest gold storage in the world) things start to get heated up.",
@@ -1237,8 +1312,11 @@ const Helper = (function() {
             "neighborhood": "Financial District, Manhattan",
             "comment": "The park on top of the Wall Street station in the film was a vacant lot that was made into a park for the film. It was turned back into a vacant lot after filming was completed.",
             "place_name": "William Street Residence, 84 William St, New York, New York 10038, United States"
-        },
-        {
+        }
+    },
+    {
+        "id": 22,
+        "movie": {
             "title": "Regarding Henry",
             "year": "1991",
             "summary": "Henry Turner (Harrison Ford) is a despicable and ruthless trial lawyer whose life is turned upside down when he is shot in the head during a robbery. He survives the injury with significant brain damage and must learn again how to speak, walk, and function normally. He has also lost most of the memory of his personal life, and must adjust to life with the family that he does not remember. To the surprise of his wife and daughter, Henry becomes a loving and affectionate man.",
@@ -1296,8 +1374,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Paramount Home Video",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 23,
+        "movie": {
             "title": "Morning Glory",
             "year": "2010",
             "summary": "Becky (Rachel McAdams) is a hard-working morning TV show producer, or at least she was untilshe got fired. Desperate to get a job, she finally gets an interview with Jerry (Jeff Goldblum) - who is desperate to hire a producer for the strugglingshow \"Daybreak\". Becky accepts the job and it proves to be more difficult than even she might be able to handle. She has to fire the sexist co-host, thentry to convince egotistical news reporter, Mike Pomeroy (Harrison Ford), to take the job, and then try and get him to actually do the job, properly. And she hasto do this while falling for handsome Adam (Patrick Wilson), and trying tosave the show from plummeting ratings. Will Becky be able to hold on to her dream job and her sanity?",
@@ -1356,8 +1437,11 @@ const Helper = (function() {
             "BoxOffice": "$30,982,329",
             "Production": "Paramount Studios",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 24,
+        "movie": {
             "title": "Bright Lights, Big City",
             "year": "1988",
             "summary": "Jamie Conway (Michael J. Fox) works as a fact-checker for a major New York magazine, but becausehe spends his nights partying with his glib best friend (Kiefer Sutherland), he's on the verge of getting fired. His wife, a fast-rising model (Phoebe Cates),just left him; he's still reeling from the death of his mother (Dianne Wiest) a year earlier; and he's obsessed with a tabloid story about a pregnant woman in acoma. Bright Lights, Big City doesn't have much of a plot, but in its meandering way it captures some of the glossy chaos of the time and of a man desperatelytrying to escape the pain in his life.",
@@ -1419,8 +1503,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "MGM Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 25,
+        "movie": {
             "title": "Shame",
             "year": "2011",
             "summary": "Thirty-something Brandon Sullivan (Michael Fassbender) is a New York yuppie. He is also a sexaddict who thinks about sex all the time when he's not having sex. He surfs for porn on his work computer, masturbates often even in his office's men's room, and eyes strange women in whateversituation he's in in the hopes of having quick anonymous sex with them. He hides his sex addiction from those few people in his life who he lets in in an emotionalsense, unlike his married boss, David Fisher, who is open about his marital infidelities to his male work colleagues. And the act of sex holds no emotional connotationwhatsoever for Brandon. The arrival back into his life and his apartment of his sister Sissy Sullivan (Carey Mulligan), from who he was estranged due to the emotional baggageassociated, changes Brandon's life, especially in what he can do in what used to be the privacy and sanctity of his apartment.",
@@ -1478,8 +1565,11 @@ const Helper = (function() {
             "BoxOffice": "$2,971,782",
             "Production": "Fox Searchlight",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 26,
+        "movie": {
             "title": "The Dark Tower",
             "year": "2017",
             "summary": "Roland Deschain (Idris Elba), the last Gunslinger, is locked in an eternal battle with Walter O'Dim (Matthew McConaughey), also known as the Man in Black. The Gunslinger must prevent the Man in Black from toppling the Dark Tower, the key that holds the universe together. With the fate of worlds at stake, two men collide in the ultimate battle between good and evil.",
@@ -1537,8 +1627,11 @@ const Helper = (function() {
             "BoxOffice": "$50,644,837",
             "Production": "Sony Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 27,
+        "movie": {
             "title": "One Fine Day",
             "year": "1996",
             "summary": "Melanie Parker (Michelle Pfeiffer), an architect and mother of Sammy, and Jack Taylor (George Clooney), anewspaper columnist and father of Maggie, are both divorced. They meet one morning when overwhelmed Jack is left unexpectedly with Maggie and forgets that Melanie wasto take her to school. As a result, both children miss their school field trip and are stuck with the parents. The two adults project their negative stereotypes ofex-spouses on each other, but end up needing to rely on each other to watch the children as each must save his job. Humor is added by Sammy's propensity for lodgingobjects in his nose and Maggie's tendency to wander.",
@@ -1592,8 +1685,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Twentieth Century Fox Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 28,
+        "movie": {
             "title": "The Smurfs",
             "year": "2011",
             "summary": "When the evil wizard Gargamel (Hank Azaria) chases the tiny blue Smurfs Papa Smurf (Jonathan Winters),Smurfette (Katy Perry), Clumsy (Anton Yelchin), Grouchy (George Lopez), Brainy (Fred Armisen) and Gutsy (Alan Cumming) out of their village, they tumble from their magicalworld and into the real world of Central Park and New York City. The Smurfs befriend Patrick (Neil Patrick Harris) and Grace Winslow (Jayma Mays), a married and expectant couple and up staying in theirapartment until they find a way to get back to their village before Gargamel tracks them down.",
@@ -1652,8 +1748,11 @@ const Helper = (function() {
             "BoxOffice": "$142,614,158",
             "Production": "Sony Pictures Columbia",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 29,
+        "movie": {
             "title": "People I Know",
             "year": "2002",
             "summary": "Eli Wurman (Al Pacino) is a publicist on the out, but all he knows is how to hustle and cajole,threaten and persuade. The hazy mania of his everyday life is fuelled by a steady stream of prescription drugs and alcohol. One night, Eli's last remaining \"big client\"Cary Launer (Ryan O'Neal) entreats him to take care of his latest publicity mess—a dangerous liaison with a hard-shelled, quick-tongued television actress with a soft centre and a taste for illegal drugs (Téa Leoni). The television actress takes him to a drug- and-sexden, a playground for the rich and famous, where she claims to be looking for a toy.",
@@ -1709,8 +1808,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Miramax Films",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 30,
+        "movie": {
             "title": "Broken English",
             "year": "2007",
             "summary": "Nora Wilder (Parker Posey) is freaking out. Everyone around her is in a relationship, is married, or has children. Nora is in her thirties, alone with job she's outgrown and a mother who constantly reminds her of it all. Not to mention her best friend Audrey's \"perfect marriage\". But after a series of disastrous dates, Nora unexpectedly meets Julien, a quirky Frenchman who opens her eyes to a lot more than love.",
@@ -1767,8 +1869,11 @@ const Helper = (function() {
             "BoxOffice": "$818,674",
             "Production": "Magnolia Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 31,
+        "movie": {
             "title": "Trading Places",
             "year": "1983",
             "summary": "Louis Winthorpe III (Dan Aykroyd) is a successful Philadelphia commodity broker with mansion, manservant andgirlfriend to match. Billy Ray Valentine (Eddie Murphy) is a hustling beggar. Winthorpe's employers, the elderly Duke brothers, make a bet that by switching the lifestyle of the twoBilly Ray will make good and their man will take to a life of crime. Suddenly Louis finds himself uncomprehendingly with no job, no home and only a new acquaintance,glamorous hooker Ophelia, prepared to help him. So at least in one way things could actually be worse.",
@@ -1826,8 +1931,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Paramount Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 32,
+        "movie": {
             "title": "Collateral Beauty",
             "year": "2016",
             "summary": "When Howard (Will Smith) a successful New York advertising executive suffers a great tragedy, he retreatsfrom life. While his concerned friends Whit (Edward Norton), Claire (Kate Winslet) and Simon (Michael Pena) try desperately to reconnect with him, he seeks answers fromthe universe by writing letters to Love, Time and Death. When his notes bring unexpected personal responses, he begins to understand how these constants interlock in alife fully lived and how even the deepest loss can reveal moments of meaning and beauty.",
@@ -1885,8 +1993,11 @@ const Helper = (function() {
             "BoxOffice": "$30,982,955",
             "Production": "New Line Cinema",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 33,
+        "movie": {
             "title": "Thanks for Sharing",
             "year": "2012",
             "summary": "Adam (Mark Ruffalo) has just reached the 5-year mark in his sex addiction sobriety with help from his sponsor Mike (Tim Robbins). New-comer Neil (Josh Gad) seeks out Adam's help hoping that he'll be his mentor, but Neil doesn't have the same maturity and continues to harass women at work, on the street, and on the subway. Adam has also just met Phoebe (Gwyneth Paltrow), who might be perfect for him, but Adam hasn't been in a relationship since he recognized his addiction to sex, and Phoebe doesn't date addicts. As Adam navigates the romantic relationship waters, Mike struggles connecting to his former drug-addicted son who has just returned home, and Neil develops a relationship with another woman in his sex addicts group, but a platonic friendship might be exactly what he needs.",
@@ -1944,8 +2055,11 @@ const Helper = (function() {
             "BoxOffice": "$752,929",
             "Production": "Roadside Attractions",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 34,
+        "movie": {
             "title": "One Night Stand",
             "year": "1997",
             "summary": "Los Angeles commercials director Max Carlyle (Wesley Snipes) visits his friend, artist Charlie (Robert Downey Jr.), who wasdiagnosed with AIDS in New York. There he meets Karen (Nastassja Kinski), they are attracted to each other and after they meet later that day at the concert,they have a passionate night. Then he returns home to L.A. to his family and wife Mimi (Ming-Na). A year later Max returns to New York again to visitCharlie who is now dying, and there he meets Karen again, who is married to Charlie's brother Vernon (Kyle MacLachlan).",
@@ -2000,8 +2114,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "New Line Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 35,
+        "movie": {
             "title": "Bride Wars",
             "year": "2009",
             "summary": "In Manhattan, the lawyer Liv Lerner (Kate Hudson) and the school teacher Emma Allan (Anne Hathaway)have been best friends since their childhood. They both are proposed to by their boyfriends on the same day and they plan their wedding parties in Plaza Hotel,using the services of the famous Marion St. Claire. However, due to Marion's secretary's mistake, their weddings are scheduled for the same day. None of them agreesto change the date and they become enemies, trying to sabotage the wedding party of the rival.",
@@ -2057,8 +2174,11 @@ const Helper = (function() {
             "BoxOffice": "$58,637,818",
             "Production": "20th Century Fox",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 36,
+        "movie": {
             "title": "Eraser",
             "year": "1996",
             "summary": "U.S. Marshal deputy John Kruger (Arnold Schwarzenegger) is one of the toughest Marshals, his methods are to \"Erase\" The identities of his witnesses he is assigned to protect. Meanwhile, a woman named Lee Cullen who works for a corporation named Cyrez performed an undercover job for the FBI to unveil a top secret weapon which uses an electromagnetic pulse to dispatch targets. Cyrez discovered this about Lee and are now out to kill her, Kruger's job is now to protect Lee so she can testify against Cyrez. But, when Kruger was assigned to perform a job with another Marshal named Robert Deguerin, he discovers that Deguerin is behind some kind of scam that will involve the EM Gun, which will change hands to a Russian criminal if Kruger does not stop them, Kruger must not only protect Lee's life but his own.",
@@ -2114,8 +2234,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Warner Home Video",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 37,
+        "movie": {
             "title": "The Bag Man",
             "year": "2014",
             "summary": "Jack (John Cusack) is a tough guy with chronic bad luck but human touches. Hired by Dragna (Robert De Niro), a legendary crime boss to complete a simple but unusual task, the plot centers around the anticipated arrival of Dragna who has summoned JACK and a host of shady characters to a remote location for unknown reasons. Over the course of a long and violently eventful night awaiting Dragna's arrival, Jack's path crosses that of RIVKA (Rebecca Da Costa), a stunningly beautiful woman whose life becomes physically and emotionally entangled with Jack's. When Dragna finally arrives on the scene there are sudden and extreme consequences for all.",
@@ -2174,8 +2297,11 @@ const Helper = (function() {
             "BoxOffice": "$48,817",
             "Production": "Cinedigm Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 38,
+        "movie": {
             "title": "The Sorcerer's Apprentice",
             "year": "2010",
             "summary": "Balthazar Blake (Nicolas Cage) is a master sorcerer in modern-day Manhattan trying to defend the city from hisarch-nemesis, Maxim Horvath (Alfred Molina). Balthazar can't do it alone, so he recruits Dave Stutler (Jay Baruchel), a seemingly average guy who demonstrates hidden potential, as his reluctant protégé. The sorcerer gives his unwilling accomplice a crash course in the art and science of magic, and together, these unlikely partners work to stop the forces of darkness. It'll take all the courage Dave can muster to survive his training, save the city and get the girl as he becomes The Sorcerer's Apprentice.",
@@ -2232,8 +2358,11 @@ const Helper = (function() {
             "BoxOffice": "$63,143,812",
             "Production": "Walt Disney Studios",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 39,
+        "movie": {
             "title": "Demolition",
             "year": "2015",
             "summary": "Davis (Jake Gyllenhaal), a successful investment banker, struggles after losing his wife in a tragic car crash. Despite pressure from his father-in-law, Phil (Chris Cooper), to pull it together, Davis continues to unravel. What starts as a complaint letter to a vending machine company turns into a series of letters revealing startling personal admissions. Davis' letters catch the attention of customer service rep, Karen (Naomi Watts), and, amidst emotional and financial burdens of her own, the two form an unlikely connection. With the help of Karen and her son Chris (Judah Lewis), Davis starts to rebuild, beginning with the demolition of the life he once knew.",
@@ -2291,8 +2420,11 @@ const Helper = (function() {
             "BoxOffice": "$1,656,098",
             "Production": "Fox Searchlight",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 40,
+        "movie": {
             "title": "The Wanderers",
             "year": "1979",
             "summary": "The Wanderers are an Italian-American gang vying for respect on the streets of the Bronx in 1963. Between rumbles with rivals such as the Ducky Boys and the Fordham Baldies, the group of toughs learn some difficult lessons about life and love. Leader Richie Gennaro (Ken Wahl) finds himself entangled with Despie Galasso (Toni Kalem), the daughter of a mobster, while the artistically inclined Joey (John Friedrich) falls hard for Nina (Karen Allen).",
@@ -2350,8 +2482,11 @@ const Helper = (function() {
             "BoxOffice": "$14,492",
             "Production": "Warner Home Video",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 41,
+        "movie": {
             "title": "P.S. I Love You",
             "year": "2007",
             "summary": "Holly Kennedy is beautiful, smart and married to the love of her life - a passionate, funny, and impetuous Irishman named Gerry. So when Gerry's life is taken by an illness, it takes the life out of Holly. The only one who can help her is the person who is no longer there. Nobody knows Holly better than Gerry. So it's a good thing he planned ahead. Before he died, Gerry wrote Holly a series of letters that will guide her, not only through her grief, but in rediscovering herself. The first message arrives on Holly's 30th birthday in the form of a cake, and to her utter shock, a tape recording from Gerry, who proceeds to tell her to get out and \"celebrate herself\". In the weeks and months that follow, more letters from Gerry are delivered in surprising ways, each sending her on a new adventure and each signing off in the same way; P.S. I Love You. Holly's mother and best friends begin to worry that Gerry's letters are keeping Holly tied to the past, but in fact, each letter is pushing her further into a new future. With Gerry's words as her guide, Holly embarks on a journey of rediscovery in a story about marriage, friendship and how a love so strong can turn the finality of death into a new beginning for life.",
@@ -2404,8 +2539,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "N/A",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 42,
+        "movie": {
             "title": "Sharknado 2: The Second One",
             "year": "22014",
             "summary": "When Fin (Ian Ziering) & April (Tara Reid) are on their way to New York, a Category 7 Hurricane spawns Heavy rain, winds, storm surges, & deadly Sharknadoes. And it's up to Fin & April to save the Big Apple from total devastation.",
@@ -2459,8 +2597,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "NCM Fathom",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 43,
+        "movie": {
             "title": "The House on 92nd Street",
             "year": "921945",
             "summary": "Prior to the United States entering WWII, the FBI is monitoring known and suspected Nazi agents in the country.Purely by happenstance, they discover a Nazi cell in the US trying to smuggle information back to Germany on Process 97, a key part of the American atomic bombdevelopment. The FBI's Inspector George Briggs (Lloyd Nolan) leads this case, known as the Christopher Case as the unknown leader of the Nazi cell has the codename Mr. Christopher. Briggs' team cannot just bring in the known Nazi agents, but rather they have to find out exactly how the information is being leaked andwho Mr. Christopher is. They co-opt the assistance of William Dietrich (William Eythe), a German-American university student who the Nazis tried to recruit.As such, he will be working for the FBI as a double agent. Unknown on either side, it becomes a race as Dietrich's Nazi contacts in the United States, led byElsa Gebhardt (Signe Hasso), don't fully trust him and come ever so close to discovering his double agent status, while Briggs, Dietrich and their associatesclose in on the leak and the identity of Mr. Christopher. The modi operandi for both sides change slightly with December 7, 1941.",
@@ -2514,8 +2655,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Twentieth Century Fox",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 44,
+        "movie": {
             "title": "Emanuelle and the Last Cannibals",
             "year": "1977",
             "summary": "While doing undercover work in a mental hospital, Emanuelle (Laura Gemser) discovers a girl who seems to havebeen raised by a tribe of amazonian cannibals. Intrigued, Emanuelle and friends travel deep into the Amazon jungle, where they find that the supposedly extinct tribe ofcannibals is still very much alive, and Emanuelle and her party are not welcome visitors.",
@@ -2565,8 +2709,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "N/A",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 45,
+        "movie": {
             "title": "Miracle on 34th Street",
             "year": "341947",
             "summary": "At the Macy's Department Store Thanksgiving Day parade, the actor playing Santa is discoveredto be drunk by a whiskered old man. Doris Walker (Maureen O'Hara), the no nonsense special events director, persuades the old man to take his place. The old man proves to be asensation and is quickly recruited to be the store Santa at the main Macy's outlet. While he is successful, Ms. Walker learns that he calls himself Kris Kringle (Edmund Gwenn)and he claims to be the actual Santa Claus. Despite reassurances by Kringle's doctor that he is harmless, Doris still has misgivings, especially when she has cynically trained herself, and especially her daughter, Susan, to reject all notions of belief and fantasy. And yet, people, especially Susan, begin to notice there is something special about Kris and his determination to advance the true spirit of Christmas amidst the rampant commercialism around him and succeeding in improbable ways. When a raucous conflict with the store's cruelly incompetent psychologist erupts, Kris finds himself held at Bellevue where, in despair, he deliberates fails a mental examination to ensure his commitment. All seems lost until Doris' friend, Fred Gaily, reassure Kris of his worth and agrees to represent him in the fight to secure his release. To achieve that, Fred arranges a formal hearing in which he argues that Kris is sane because he is in fact Santa Claus. What ensues is a bizarre hearing in which people's beliefs are reexamined and put to the test, but even so, it's going to take a miracle for Kris to win.",
@@ -2624,8 +2771,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "20th Century Fox",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 46,
+        "movie": {
             "title": "Regarding Henry",
             "year": "1991",
             "summary": "Henry Turner (Harrison Ford) is a despicable and ruthless trial lawyer whose life is turned upside down when he is shot in the head during a robbery. He survives the injury with significant brain damage and must learn again how to speak, walk, and function normally. He has also lost most of the memory of his personal life, and must adjust to life with the family that he does not remember. To the surprise of his wife and daughter, Henry becomes a loving and affectionate man.",
@@ -2684,8 +2834,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Paramount Home Video",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 47,
+        "movie": {
             "title": "I Am Legend",
             "year": "2007",
             "summary": "Robert Neville (Will Smith) is a scientist who was unable to stop the spread of the terrible virusthat was incurable and man-made. Immune, Neville is now the last human survivor in what is left of New York City and perhaps the world.For three years, Neville has faithfully sent out daily radio messages, desperate to find any other survivors who might be out there.But he is not alone. Mutant victims of the plague -- The Infected -- lurk in the shadows... watching Neville's every move... waiting forhim to make a fatal mistake. Perhaps mankind's last, best hope, Neville is driven by only one remaining mission: to find a way to reversethe effects of the virus using his own immune blood. But he knows he is outnumbered... and quickly running out of time.Video clips from I Am Legend locations",
@@ -2742,8 +2895,11 @@ const Helper = (function() {
             "BoxOffice": "$256,399,999",
             "Production": "Warner Bros. Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 48,
+        "movie": {
             "title": "Frankie and Johnny",
             "year": "1991",
             "summary": "Johnny (Al Pacino) is a lonely middle-aged man who gets a job in a restaurant owned by a greek family.There, he meets Frankie (Michelle Pfeiffer), a woman who doesn't seem very happy with her life, and he falls in love with her. The problem is that Frankie feelsreally lost in her monotony, so he can't convince her about his feelings.",
@@ -2801,8 +2957,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Paramount Home Video",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 49,
+        "movie": {
             "title": "The Bourne Ultimatum",
             "year": "2007",
             "summary": "Bourne (Matt Damon) is once again brought out of hiding, this time inadvertently by London-basedreporter Simon Ross who is trying to unveil Operation Blackbriar--an upgrade to Project Treadstone--in a series of newspaper columns. Bourne sets up a meeting withRoss and realizes instantly they're being scanned. Information from the reporter stirs a new set of memories, and Bourne must finally, ultimately, uncover his darkpast whilst dodging The Company's best efforts in trying to eradicate him.",
@@ -2859,8 +3018,11 @@ const Helper = (function() {
             "BoxOffice": "$227,400,000",
             "Production": "Universal Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 50,
+        "movie": {
             "title": "It Takes Two",
             "year": "1995",
             "summary": "Alyssa (Ashley Olsen) is a rich girl and Amanda (Mary-Kate Olsen) is an orphan, who are two littlegirls who are identical, but complete strangers, that accidentally meet one day. In an attempt to stop Alyssa's father from getting married to Clarice (Jane Sibbett),a conceited know-it-all, the girls get him to meet Amanda's case worker and switch lives to stop the wedding once and for all. Though things don't go exactly asplanned when Alyssa gets adopted and Clarice moves up the wedding.",
@@ -2919,8 +3081,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Warner Home Video",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 51,
+        "movie": {
             "title": "A Late Quartet",
             "year": "2012",
             "summary": "After a classical string quartet's 25 years of success, Peter (Christopher Walken), the cellist andoldest member, decides that he must retire when he learns he has Parkinson's Disease. For the others, that announcement proves a catalyst forletting their hidden resentments come to the surface while the married members' daughter has disruptive desires of her own. All this threatens totear the group apart even as they are famous for playing Beethoven's String Quartet No. 14, opus 131, a piece that is played non-stop no matterhow life interferes.",
@@ -2979,8 +3144,11 @@ const Helper = (function() {
             "BoxOffice": "$1,400,000",
             "Production": "Entertainment One",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 52,
+        "movie": {
             "title": "Deep Impact",
             "year": "1998",
             "summary": "A comet is on a course to collide with Earth, and people must cope with the fact that they will die. The President has devised a plan to keep as many humans alive as possible. Scientists have built giant caves big enough to hold a million people, and the government is going to have a lottery to pick 800,000 people to live in the caves along with 200,000 scientists, artists and doctors.",
@@ -3037,8 +3205,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Paramount Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 53,
+        "movie": {
             "title": "Exposed",
             "year": "2016",
             "summary": "Detective Galban (Keanu Reeves), finds his partner and close friend, Detective Cullen murdered in an underground subway. On the huntfor the killer, Galban begins to suspect his partner may have been heavily involved in drug dealing and police corruption. As Galban investigates, people who knew Cullen, are conveniently found dead.The closer Galban gets to the truth, both Cullen's wife and his Lieutenant Christopher McDonald try to persuade him to back off, fearing his findings may discredit Cullen and expose corruptionwithin the Police Department. Galban's only remaining lead is Isabel (Ana de Armas), a young, devout, Latino girl, who resides with her in-laws. Galban fears her life could be in jeopardy should he gettoo close to her. However, Isabel has recently experienced something not from this world, something mystical that she believes is truly a miracle. Not unlike Galban, Isabel is dealing with herown demons from the past; a past that just may lead them to the truth; in turn, bringing both some form of assurance.",
@@ -3095,8 +3266,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Lionsgate Premiere",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 54,
+        "movie": {
             "title": "Side Street",
             "year": "1950",
             "summary": "Joe Norson (Farley Granger), a poor letter carrier with a sweet, pregnant wife, yields to momentary temptation andsteals $30,000 belonging to a pair of ruthless blackmailers who won't stop at murder. After a few days of soul-searching, Joe offers to return the money, only tofind that the \"friend\" he left it with has absconded. Now every move Joe makes plunges him deeper into trouble, as he's pursued and pursuing through the shadowy,sinister side of New York.",
@@ -3150,8 +3324,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "MGM",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 55,
+        "movie": {
             "title": "They All Laughed",
             "year": "1981",
             "summary": "New York's Odyssey Detective Agency is hired by two different clients tofollow two women suspected of infidelity. Ladies' man John Russo (Ben Gazzara) trails Angela Niotes (Audrey Hepburn), the elegant wife of awealthy Italian industrialist, while Charles Rutledge and Arthur Brodsky follow Dolores Martin (Dorothy Stratten), the beautiful young wife of a jealous husband. Their respective cases arecomplicated when John falls for Angela, and Charles falls for Dolores.",
@@ -3206,8 +3383,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "20th Century Fox Film Corporation",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 56,
+        "movie": {
             "title": "Who's That Girl",
             "year": "1987",
             "summary": "Manhattan lawyer Louden Trott (Griffin Dunne) is about to marry his tycoon boss Simon Worthington's (John McMartin's) spoiled-rotten daughter Wendy (Haviland Morris), albeit with a crushing prenuptial. Simon, however, makes him interrupt the preparations to make sure in person that nobody Nikki Finn (Madonna), just released from a New York jail, takes the bus to meet her Philadelphia parole officer. Picking up a cat (actually a rare mountain lion) for even richer Montgomery Bell (Sir John Mills) proves to be bad enough, but Nikki takes the cake when it comes to provoking, manipulating, and surprising. Furthermore, they are tailed by a couple of criminal goons and a bickering pair of police detectives who are after the key to evidence which Nikki claims proves she was framed by corrupt Worthington.",
@@ -3264,8 +3444,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Warner Bros. Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 57,
+        "movie": {
             "title": "Return to Montauk",
             "year": "2017",
             "summary": "It is winter in Montauk, at the far end of Long Island. There are two deck chairs on the windswept beach. The chairs are waiting for two people who have, for a long time, been lost to each other. He is a writer and has come from Berlin. She is a New York lawyer. Many years before, they had a fling, but they were too young to know they had each met the love of their lives. Now they have come back to Montauk, filled with regret and hope. The bodies remember. It feels for them like the next day after the last one they were together. They do not know if it is possible to reverse time. In Montauk, they find out.",
@@ -3319,8 +3502,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "N/A",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 58,
+        "movie": {
             "title": "Self/less",
             "year": "2015",
             "summary": "Billionaire industrialist Damian Hale (Ben Kingsley) is master of his universe, until he encounters a foe that hecan't defeat: cancer. His only hope is a radical medical procedure called \"shedding,\" in which his consciousness is transferred to a healthy body. After the procedure, Damian, nowcalled Edward (Ryan Reynolds), starts a new life in New Orleans, but he's plagued by disturbing images. When he delves into Edward's mysterious origin, he learns that some will kill to keep it secret.",
@@ -3378,8 +3564,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Focus Features",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 59,
+        "movie": {
             "title": "Heavy Petting",
             "year": "2007",
             "summary": "When Charlie (Brendan Hines) meets Daphne (Malin Akerman) - the girl of his dreams - he never expects he'll haveto battle past her pet dog \"Babydoll\" to woo her. And just when it seems he can't beat the beast and all is lost, something unexpected happens:Charlie begins to fall in love with the dog himself, realizing he never really needed a girlfriend in the first place. Now, in order to keephanging out with \"man's best friend\", Charlie must scramble to keep the relationship with Daphne going at all costs - or risk losing them both.",
@@ -3428,8 +3617,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Docurama",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 60,
+        "movie": {
             "title": "Purple Violets",
             "year": "2007",
             "summary": "Patti Petalson (Selma Blair) is a promising writer, but her marriage and conventional job keep her from her dream. She longs to return to her writing, especially after running into her first love Brian Callahan (Patrick Wilson), a successful crime novelist. Kate (Debra Messing) is Patti's best friend since college. She's a tough-talking schoolteacher who plays therapist to all Patti's problems, while she's got a few of her own. Despite Brian's gorgeous Tribeca loft and perfect house in the Hamptons, he longs to write works of greater literary value. Michael Murphy (Edward Burns), his lawyer and best friend from college still carries a flame for his former girlfriend Kate, even though their relationship ended badly years ago. She holds a major grudge, but he would go to any length just to win Kate back, knowing his feelings for her never went away. He tried to forget over the years but since he spotted Kate in the restaurant she was all he could think about. When Patti sells Murphy a new apartment, and Brian publishes his personal novel, these old friends reconnect in unexpected ways with surprising results.",
@@ -3478,8 +3670,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Lucky Day Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 61,
+        "movie": {
             "title": "My Last Day Without You",
             "year": "2011",
             "summary": "On a one-day business trip to New York, a young German business executive (Ken Duken) falls in love with a singer-songwriter(Nicole Beharie) who exposes him to her Brooklyn world and emotions he's never experienced before.",
@@ -3528,8 +3723,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Novus Content and Mission Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 62,
+        "movie": {
             "title": "New York Minute",
             "year": "2004",
             "summary": "Over a 24 hour period, 17-year-old sisters Jane (Ashley Olsen) and Roxy (Mary-Kate Olsen) Ryan,adversaries who begrudgingly journey together from their Long Island home to New York, where overachiever Jane is due to delivera speech to qualify for a prestigious college scholarship abroad. Meanwhile, laid-back punk rock rebel Roxy hopes to get backstageat an underground music video shoot for punk pop band Simple Plan so that she can slip her demo tape to the group. However,Roxy and Jane's plans go awry when a mix-up involving Jane's day planner lands them in the middle of a shady black-market transaction.Pursued by an overzealous truant officer and accused of kidnapping a dog belonging to a senator, the Ryan's must find a way to worktogether to thwart the forces threatening to jeopardize Jane's college dreams and ship Roxy off to a convent school.",
@@ -3587,8 +3785,11 @@ const Helper = (function() {
             "BoxOffice": "$14,018,364",
             "Production": "Warner Bros.",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 63,
+        "movie": {
             "title": "The Sorcerer's Apprentice",
             "year": "2010",
             "summary": "Balthazar Blake (Nicolas Cage) is a master sorcerer in modern-day Manhattan trying to defend the city from hisarch-nemesis, Maxim Horvath (Alfred Molina). Balthazar can't do it alone, so he recruits Dave Stutler (Jay Baruchel), a seemingly average guy who demonstrates hidden potential, as his reluctant protégé. The sorcerer gives his unwilling accomplice a crash course in the art and science of magic, and together, these unlikely partners work to stop the forces of darkness. It'll take all the courage Dave can muster to survive his training, save the city and get the girl as he becomes The Sorcerer's Apprentice.",
@@ -3646,8 +3847,11 @@ const Helper = (function() {
             "BoxOffice": "$63,143,812",
             "Production": "Walt Disney Studios",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 64,
+        "movie": {
             "title": "Eat Pray Love",
             "year": "2010",
             "summary": "Liz Gilbert (Julia Roberts) had everything a modern woman is supposed to dream of having -a husband, a house, a successful career - yet like so many others, she found herself lost, confused, and searching for what she really wanted in life.Newly divorced and at a crossroads, Gilbert steps out of her comfort zone, risking everything to change her life, embarking on a journey around the world thatbecomes a quest for self-discovery. In her travels, she discovers the true pleasure of nourishment by eating in Italy; the power of prayer in India, and,finally and unexpectedly, the inner peace and balance of true love in Bali.",
@@ -3705,8 +3909,11 @@ const Helper = (function() {
             "BoxOffice": "$80,574,010",
             "Production": "Sony Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 65,
+        "movie": {
             "title": "Fading Gigolo",
             "year": "2013",
             "summary": "In Brooklyn, the bankrupted owner of a book store Fioravante (John Turturro) is forced to closehis family business. His best friend Murray (Woody Allen) tells him that his dermatologist Dr. Parker (Sharon Stone) dreams of having a threesome and would pay a thousanddollars to have one with her friend Selima (Sofía Vergara). Murray proposes to be Fioravante's pimp and they start a male prostitution business. When Fioravantemeets the Jewish Avigal, who is the widow of a rabbi, they fall in love with each other. But the Jewish Dovi loves Avigal (Vanessa Paradis) and will make life difficult for Murray.",
@@ -3766,8 +3973,11 @@ const Helper = (function() {
             "BoxOffice": "$3,179,352",
             "Production": "Millenium Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 66,
+        "movie": {
             "title": "Cruel Intentions 2",
             "year": "22000",
             "summary": "When the roguish Sebastian (Robin Dunne) reunites with his wicked stepsister Kathryn (Amy Adams) in their grand new townhome in New York, heplans to put his past behind him and become a one-woman man. Especially after meeting the stunningly innocent Danielle (Sarah Thompson), the daughter of Manchester Prep'sHeadmaster. But after being crossed by Sebastian, Kathryn plots to test the strength of the lovers' relationship by throwing a few curves - namely herself -at her step-brother. Can Sebastian resist Kathryn's ample charms and dedicate himself solely to educating the naïve Danielle in the ways of love? Everything is up forgrabs, and nothing is what it seems in this deliciously tantalizing tale of corruption, domination and seduction.",
@@ -3820,8 +4030,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Sony Pictures Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 67,
+        "movie": {
             "title": "Woo",
             "year": "1998",
             "summary": "Darlene \"Woo\" Bates (Jada Pinkett Smith) has been dumped a little bit too many times,now this femme-fatale doesn't let just any man swing with her, and when she's set up on a blind-date, it could be love.. if they don't kill each other first.",
@@ -3872,8 +4085,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "New Line Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 68,
+        "movie": {
             "title": "Sorry, Haters",
             "year": "2005",
             "summary": "Ashade is a Syrian chemist who drives a cab in New York City and looks after his French-speakingsister-in-law and her child while they seek the release of Ashade's brother, a Canadian citizen grabbed at JFK by US intelligence and rendered to Syria.One night, Ashade takes a fare to New Jersey and back, a high-strung woman who says her name is Philly (Robin Wright) and that she's a producer of reality TV including\"Sorry, Haters,\" an envy-stoking show about the wealth of the stars. Philly pushes into Ashade's life and promises help from a lawyer, but then simply takesAshade's savings. His discovering who she really is and his attempts to get his life back take the rest of the film.",
@@ -3930,8 +4146,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "IFC Films",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 69,
+        "movie": {
             "title": "August",
             "year": "2008",
             "summary": "Tom (Josh Hartnett) and Josh Sterling (Adam Scott) have a start-up dot-com. It's gone public to initial success. Josh is the technical genius. Tom is the fast-talking and abrasive CEO, in charge of the business side. It's August, 2001, less than a month before they can sell their shares and, perhaps, make lots of money. But the company is running out of cash, its main client is stalling, and share values are falling. For Tom to maintain the firm's appearance, he must find cash: investors could rescue him, but at a high cost of his potential wealth and company control. Tom goes to his brother for a loan. At the same time, an old flame, Sarrah, comes back to the city. Can Tom hold things together, bravura and all?",
@@ -3989,8 +4208,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Original Media",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 70,
+        "movie": {
             "title": "Gloria",
             "year": "1999",
             "summary": "Gloria (Sharon Stone) has just gotten out of prison, where she has served three years to save her boyfriend,Kevin (Jeremy Northam). During her stay in prison, she thinks about how Kevin never once visited her. She goes to Kevin and tells him that the relationship is over andthat all she wants is the money he promised her for taking the rap for him. He refuses to give it to her. Meanwhile, the gang's accountant has tried to give himself someprotection by creating a computer disk which has the names of all those involved in the outfit's criminal activities. The plan backfires, and, in trying to get the disk,one of Kevin's trigger happy henchmen kills the accountant, as well as his wife, mother and daughter. Only his seven-year old son Nicky (Jean-Luke Figueroa) escapes, butis quickly caught and brought to Kevin's apartment. It is there that Gloria and Nicky's paths cross. Gloria must decide whether or not to risk her life in order to save the boy.",
@@ -4047,8 +4269,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Columbia Pictures Corporation",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 71,
+        "movie": {
             "title": "Then She Found Me",
             "year": "2007",
             "summary": "Deeply religious April Epner (Helen Hunt), a 39-year-old Brooklyn elementary school teacher, finds her life derailed by a series of events over which she has no control. Her husband Ben abruptly leaves her, her abrasive adoptive mother Trudy passes away the following day, and shortly after she is contacted by Alan, a representative of Bernice Graves, the flamboyant host of a local talk show, who introduces herself as her biological mother.\nAlthough intrigued by Bernice's claim she was fathered by Steve McQueen, April initially resists her efforts to forge a relationship. At the same time, she finds herself attracted to Frank, the divorced father of one of her students, as the two get to know each other via lengthy telephone conversations. For their first date he escorts her to a party at Bernice's apartment.\nComplications arise when April discovers she is pregnant, the result of a quick and clumsy coupling with Ben on the kitchen floor just before he left her. April has longed to have a child all her life and is delighted with the news, but is confused and upset by Ben's sudden return, Frank's hasty departure, and Bernice's insistent attempts to create a bond btw them. Not helping the situation is the discovery Bernice voluntarily put her up for adoption a full year after her birth and not three days later at the urging of her parents, according to the scenario she initially presented. When April miscarries, her brother Freddy tries to counsel her, but ultimately she must rely on her deep-rooted faith to deal with the betrayals she has suffered not only at the hands of those she trusted but by the God she worships as well.",
@@ -4105,8 +4330,11 @@ const Helper = (function() {
             "BoxOffice": "$3,728,972",
             "Production": "ThinkFilm",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 72,
+        "movie": {
             "title": "Anger Management",
             "year": "2003",
             "summary": "Mild-mannered timid businessman Dave Buznik (Adam Sandler) who works for a pet clothing companyout of New York City. He's got an abrasive boss named Mr. Frank Head who frequently takes credit for his work and steps on him in return. He's got a loving girlfriend,Linda (Marisa Tomei), whose best friend is her condescending college ex, Andrew. But when a misunderstanding aboard an airplane goes haywire, Dave is ordered by thecourt to undergo anger management therapy at the hands of specialist Dr. Buddy Rydell (Jack Nicholson), who is an unpredictable, psychopathic character. As therelationship between Dave and Buddy becomes more tense, when the unorthodox treatment wreaks havoc Dave's life, and Buddy might be the only one who can save himfrom a problem he recognizes right away in his patient, that could only get worse.",
@@ -4165,8 +4393,11 @@ const Helper = (function() {
             "BoxOffice": "$133,756,285",
             "Production": "Sony Pictures Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 73,
+        "movie": {
             "title": "The Object of My Affection",
             "year": "1998",
             "summary": "George (Paul Rudd) and Nina (Jennifer Aniston) seem like the perfect couple. They share a cozy Brooklyn apartment, ataste for tuna casserole dinners, and a devotion to ballroom dancing. They love each other. There's only one hitch: George is gay. And when Nina announces she's pregnant, thingsget especially complicated. Vince - Nina's overbearing boyfriend and the baby's father-wants marriage. Nina wants independence. George will do anything for a little unqualifiedaffection, but is he ready to become an unwed surrogate dad?",
@@ -4223,8 +4454,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Twentieth Century Fox Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 74,
+        "movie": {
             "title": "Léon, The Professional",
             "year": "1994",
             "summary": "Mathilda (Natalie Portman), a twelve-year old New York girl, is living an undesirable life among her half-family.Her father stores drugs for two-faced cop Norman Stansfield (Gary Oldman). Only her little brother keeps Mathilda from breaking apart. One day, Stansfield and his team takecruel revenge on her father for stretching the drugs a little, thus killing the whole family. Only Mathilda, who was out shopping, survives by finding shelterin Léon's apartment in the moment of highest need. Soon, she finds out about the strange neighbour's unusual profession - killing - and desperately seeks hishelp in taking revenge for her little brother. Léon (Jean Reno), who is completely unexperienced in fatherly tasks, and in friendships, does his best to keep Mathilda outof trouble - unsuccessfully. Now, the conflict btw a killer, who slowly discovers his abilities to live, to feel, to love and a corrupt police officer,who does anything in his might to get rid of an eye witness, arises to unmeasurable proportions - all for the sake of a little twelve-year old girl, who has nearly nothing to lose.",
@@ -4246,8 +4480,11 @@ const Helper = (function() {
             "neighborhood": "Astoria, Harlem",
             "comment": "",
             "place_name": "38-12 Broadway, Queens, New York 11103, United States"
-        },
-        {
+        }
+    },
+    {
+        "id": 75,
+        "movie": {
             "title": "Ghostbusters 2",
             "year": "21989",
             "summary": "Sidelined for five years since their spectacular save (an near destruction) of New York City,the superstars of the supernatural spring back into action when the infant son of single-mother Dana Barrett becomes the target of a powerful demonic force.Reunited with the no-nonsense Zeddemore, nerdy near-sighted Louis and their ever-industrious secretary Janine, the heroes of the hereafter must put a stop toan enormous underground river of slime ready to rot the roots of the entire Big Apple. Now, if your hometown was on the verge of being sucked down into the 10thlevel of Hell, who else would you call?",
@@ -4273,8 +4510,11 @@ const Helper = (function() {
             "neighborhood": "Canarsie, Manhattan",
             "comment": "",
             "place_name": "East 77th Street, Brooklyn, New York 11236, United States"
-        },
-        {
+        }
+    },
+    {
+        "id": 76,
+        "movie": {
             "title": "Confessions of a Shopaholic",
             "year": "2009",
             "summary": "Struggling with her debilitating obsession with shopping and the sudden collapse of her income source, Rebecca Bloomwood (Isla Fisher)unintentionally lands a job writing for a financial magazine after a drunken letter-mailing mix-up. Ironicallywriting about the very consumer caution of which she herself has not abided, Rebecca's innovative comparisons and unconventional metaphors for economics grants her criticalacclaim, public success, and the admiration of her supportive boss Luke. But as she draws closer to her ultimate goal of writing for renowned fashion magazine Alette, shequestions her true ambitions and must determine if overcoming her \"shopaholic\" condition will bring her real happiness.",
@@ -4332,8 +4572,11 @@ const Helper = (function() {
             "BoxOffice": "$44,239,688",
             "Production": "Walt Disney Studios",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 77,
+        "movie": {
             "title": "New Jack City",
             "year": "1991",
             "summary": "The gangster Nino (Wesley Snipes) has a gang who call themselves Cash Money Brothers.They get into the crack business and not before long they make a million dollars every week. A cop, Scotty (Ice-T), is after them. He tries to get intothe gang by letting an ex-drug addict infiltrate the gang, but the attempt fails miserably. The only thing that remains is that Scotty himselfbecomes a drug pusher.",
@@ -4392,8 +4635,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Warner Bros. Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 78,
+        "movie": {
             "title": "One Fine Day",
             "year": "1996",
             "summary": "Melanie Parker (Michelle Pfeiffer), an architect and mother of Sammy, and Jack Taylor (George Clooney), anewspaper columnist and father of Maggie, are both divorced. They meet one morning when overwhelmed Jack is left unexpectedly with Maggie and forgets that Melanie wasto take her to school. As a result, both children miss their school field trip and are stuck with the parents. The two adults project their negative stereotypes ofex-spouses on each other, but end up needing to rely on each other to watch the children as each must save his job. Humor is added by Sammy's propensity for lodgingobjects in his nose and Maggie's tendency to wander.",
@@ -4448,8 +4694,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Twentieth Century Fox Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 79,
+        "movie": {
             "title": "Begin Again",
             "year": "2013",
             "summary": "Gretta (Keira Knightley) and her long-time boyfriend Dave (Adam Levine) are college sweethearts and songwriting partnerswho decamp for New York when he lands a deal with a major label. But the trappings of his new-found fame soon tempt Dave to stray, and a reeling, lovelorn Gretta is left on herown. Her world takes a turn for the better when Dan (Mark Ruffalo), a disgraced record-label exec, stumbles upon her performing on an East Village stage and is immediatelycaptivated by her raw talent. From this chance encounter emerges an enchanting portrait of a mutually transformative collaboration, set to the soundtrack of a summer in New York City.",
@@ -4506,8 +4755,11 @@ const Helper = (function() {
             "BoxOffice": "$12,078,174",
             "Production": "The Weinstein Company",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 80,
+        "movie": {
             "title": "Here and Now",
             "year": "2018",
             "summary": "Vivienne (Sarah Jessica Parker), is an established singer/songwriter with a successful music career. On the eve of a major performance, Vivienne receives some life-altering news that causes her to reevaluate her priorities. As she crisscrosses the busy streets of New York City, she tries to balance her upcoming music tour, family, and friends. With the support of her overbearing mother, Jeanne (Jacqueline Bisset), her long-time manager, Ben, and her ex-husband, Nick (Simon Baker), Vivienne strives to make peace with the decisions and sacrifices she's made along the way.",
@@ -4556,8 +4808,11 @@ const Helper = (function() {
             "imdbID": "tt5923012",
             "Type": "series",
             "totalSeasons": "1"
-        },
-        {
+        }
+    },
+    {
+        "id": 81,
+        "movie": {
             "title": "Wall Street: Money Never Sleeps",
             "year": "2010",
             "summary": "In 2001, corporate raider Gordon Gecko (Michael Douglas) completes a prisonsentence for money laundering. No one is there to meet him. Jump seven years: Gecko is promoting his book, his estranged daughter Winnie is apolitical muckraker engaged to Jake Moore (Shia LaBeouf), a hot-shot Wall Street trader, and an old nemesis of Gecko's, Bretton James, devours the firm Jakeworks for. When Jake's mentor takes his life, Jake wants revenge and Gordon may be the perfect ally. With the fiscal crisis of September 2008as background, can Jake maintain Winnie's love, broker a rapprochement with her father, get his revenge, and find funds for a green-energyproject he champions; or will greed trump all?",
@@ -4616,8 +4871,11 @@ const Helper = (function() {
             "BoxOffice": "$52,474,616",
             "Production": "20th Century Fox",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 82,
+        "movie": {
             "title": "Two Weeks Notice",
             "year": "2002",
             "summary": "Lucy Kelson (Sandra Bullock) is a Chief Counsel for the Wade Corporation, one of New York City's top commercial real estate developers.She's a brilliant lawyer with a sharp, strategic mind. She also has an ulcer and doesn't get much sleep. It's not the job that's getting to her. It's her millionaire boss,George Wade (Hugh Grant). Handsome, charming and undeniably self-absorbed, he treats her more like a nanny than a Harvard Law grad and can barely choose a tie without her help.Now, after one year of calling the shots-on everything from his clothes to his divorce settlements - Lucy Kelson is calling it quits.",
@@ -4675,8 +4933,11 @@ const Helper = (function() {
             "BoxOffice": "$93,300,000",
             "Production": "Warner Bros.",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 83,
+        "movie": {
             "title": "Doppelganger",
             "year": "1993",
             "summary": "Holly Gooding (Drew Barrymore) moves from NYC to LA after a murder, in which she is implicated. She is followed by what is apparently her evil alter- ego. She moves into a room for rent by a writer, and he begins having an affair with her, but after some strange things happen, he's not so sure if the affair is with her or her doppelganger.",
@@ -4727,8 +4988,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Twentieth Century Fox Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 84,
+        "movie": {
             "title": "Teenage Mutant Ninja Turtles",
             "year": "2014",
             "summary": "Darkness has settled over New York City as Shredder and his evil Foot Clan have an iron grip on everything from the police to the politicians. The future is grim until four unlikely outcast brothers rise from the sewers and discover their destiny as Teenage Mutant Ninja Turtles. The Turtles must work with fearless reporter April O'Neil (Megan Fox) and her cameraman Vern Fenwick to save the city and unravel Shredder's diabolical plan.",
@@ -4786,8 +5050,11 @@ const Helper = (function() {
             "BoxOffice": "$163,911,409",
             "Production": "Paramount Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 85,
+        "movie": {
             "title": "Bridge of Spies",
             "year": "2015",
             "summary": "In the cold war, a lawyer, James B. Donovan (Tom Hanks) is recruited by the CIA and involved in an intense negotiation mission to release and exchange aCIA U-2 spy-plane pilot, Francis G. Powers. The pilot was arrested alive after his plane was shot down by the Soviet Union during a mission and stays in the company of a KGB intelligence officer, Rudolf Abel (Mark Rylance), who was arrested for espionage in the US.",
@@ -4845,8 +5112,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Dreamworks Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 86,
+        "movie": {
             "title": "The Dark Tower",
             "year": "2017",
             "summary": "Roland Deschain (Idris Elba), the last Gunslinger, is locked in an eternal battle with Walter O'Dim (Matthew McConaughey), also known as the Man in Black. The Gunslinger must prevent the Man in Black from toppling the Dark Tower, the key that holds the universe together. With the fate of worlds at stake, two men collide in the ultimate battle between good and evil.",
@@ -4905,8 +5175,11 @@ const Helper = (function() {
             "BoxOffice": "$50,644,837",
             "Production": "Sony Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 87,
+        "movie": {
             "title": "The Art of Getting By",
             "year": "2011",
             "summary": "Believing the quote that you are born alone, die alone and everything else is an illusion,George (Freddie Highmore) doesn't see the point of life, school, or homework. Then he meets Sally (Emma Roberts) and he now has a reason to go to schooland make friends, even if he's not ready to admit to himself or to her that he likes her. The school's principal and art teacher introduce him to an alumni,and successful artist, Dustin, who can help guide George along life's path, but other distractions start surfacing, and George might not even be able tograduate from high school.",
@@ -4964,8 +5237,11 @@ const Helper = (function() {
             "BoxOffice": "$1,429,260",
             "Production": "Fox Searchlight",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 88,
+        "movie": {
             "title": "One Fine Day",
             "year": "1996",
             "summary": "Melanie Parker (Michelle Pfeiffer), an architect and mother of Sammy, and Jack Taylor (George Clooney), anewspaper columnist and father of Maggie, are both divorced. They meet one morning when overwhelmed Jack is left unexpectedly with Maggie and forgets that Melanie wasto take her to school. As a result, both children miss their school field trip and are stuck with the parents. The two adults project their negative stereotypes ofex-spouses on each other, but end up needing to rely on each other to watch the children as each must save his job. Humor is added by Sammy's propensity for lodgingobjects in his nose and Maggie's tendency to wander.",
@@ -5022,8 +5298,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Twentieth Century Fox Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 89,
+        "movie": {
             "title": "The Freshman",
             "year": "1990",
             "summary": "Clark Kellogg (Matthew Broderick) is a young man starting his first year at film school in New YorkCity. After a small time crook steals all his belongings, Clark meets Carmine \"Jimmy the Toucan\" Sabatini (Marlon Brando), an \"importer\" bearing a startlingresemblance to a certain cinematic godfather. When Sabatini makes Clark an offer he can't refuse, he finds himself caught up in a caper involvingendangered species and fine dining.",
@@ -5080,8 +5359,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Sony Pictures Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 90,
+        "movie": {
             "title": "Lola Versus",
             "year": "2012",
             "summary": "Lola (Greta Gerwig) is 29 years-old and is happily engaged to her perfectman, Luke (Joel Kinnaman). But just three weeks before her big day, Luke calls it off, and Lola is forced to re-group as she cancels the wedding.While struggling to find happiness through sexual flings with her best friend, first dates with strangers, and attempts at re-connecting with herex-fiancé, Lola realizes she's going to have to find herself first before she can find love and happiness.",
@@ -5140,8 +5422,11 @@ const Helper = (function() {
             "BoxOffice": "$200,000",
             "Production": "Fox Searchlight Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 91,
+        "movie": {
             "title": "Big",
             "year": "1988",
             "summary": "At a carnival, young Josh Baskins (Tom Hanks) wishes he was big - only to awake the next morning and discover he is! Withthe help of his friend Billy (Jared Rushton), Josh lands a job at a toy company in New York City. There, his inner wisdomenables him to successfully preditc what children want to buy, making the awestruck, naive Josh irresistible to to a beautiful ladder-climbingcolleague (Elizabeth Perkins). But the more he experiences being an adult, the more Josh longs for the simple joys of childhood.",
@@ -5200,8 +5485,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Twentieth Century Fox Home Entertainment",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 92,
+        "movie": {
             "title": "You Stupid Man",
             "year": "2002",
             "summary": "A young man named Owen (David Krumholtz), who can't get over his would-be fiancee and nowex-girlfriend, Chloe (Denise Richards), who moved to Los Angeles to become a TV star, finally falls in love with Nadine (Milla Jovovich), the girl who would've been their maidof honor. Soon after, however, his ex loses her TV show, and comes back home, looking to reunite.",
@@ -5250,8 +5538,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Warner Home Video",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 93,
+        "movie": {
             "title": "Ass Backwards",
             "year": "2013",
             "summary": "Two childhood best friends Kate (June Diane Raphael) and Chloe (Casey Wilson) who are pushing the age of 30and not quite where they thought they'd be in life. When they run into their former beauty pageant nemesis, Laurel (Alicia Silverstone), they decide to go on a road trip backhome to recapture the pageant crown which eluded them as children. On the road, they face some hard truths about themselves and each other as they encounter spring breakers,strip clubs, a women's militant group and their favorite reality star. This heightened comedic awakening leads us into an unforgettable third act finale that is the girls'homecoming and final reckoning with their past, present and future.",
@@ -5309,8 +5600,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Gravitas Ventures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 94,
+        "movie": {
             "title": "Anjaana Anjaani",
             "year": "2010",
             "summary": "The story of two strangers on an odyssey of discovery -- down a path that is ridden with theexquisite pain and joy of falling in love, only they don't realize it. A series of hilarious misadventures trace their bi coastal road journey as they go aboutfulfilling their last wishes. But then life interrupts, as is its habit; and painful choices must be made. The duo part with the understanding that their daystogether were a brief interlude of insanity that had to succumb to real life. They part as they met - as strangers.",
@@ -5359,8 +5653,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Eros International",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 95,
+        "movie": {
             "title": "Lola Versus",
             "year": "2012",
             "summary": "Lola (Greta Gerwig) is 29 years-old and is happily engaged to her perfectman, Luke (Joel Kinnaman). But just three weeks before her big day, Luke calls it off, and Lola is forced to re-group as she cancels the wedding.While struggling to find happiness through sexual flings with her best friend, first dates with strangers, and attempts at re-connecting with herex-fiancé, Lola realizes she's going to have to find herself first before she can find love and happiness.",
@@ -5417,8 +5714,11 @@ const Helper = (function() {
             "BoxOffice": "$200,000",
             "Production": "Fox Searchlight Pictures",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 96,
+        "movie": {
             "title": "Lulu on the Bridge",
             "year": "1998",
             "summary": "Izzy Maurer (Harvey Keitel), a jazz saxophonist loses his capability to play when he is injured in a shooting at acafé where he was playing. He sinks into depression when everyone charges in to take care of him, including his ex-wife. However, he discovers a stonewith a telephone number attached. Returning the stone, he meets Celia Burns (Mira Sorvino), a young aspiring actress who in one of those film coincidences is listening to his music.Soon the two begin an affair which is fouled by his over-obsessiveness with her which costs them both a job at a restaurant.",
@@ -5473,8 +5773,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Trimark",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 97,
+        "movie": {
             "title": "5 Flights Up",
             "year": "52014",
             "summary": "A husband (Morgan Freeman) and wife (Diane Keaton) spend a hectic weekend pondering the sale of the apartment they've shared for more than 40 years..",
@@ -5534,8 +5837,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Focus Features",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 98,
+        "movie": {
             "title": "Noel",
             "year": "2004",
             "summary": "Christmas Eve in New York, and the lonely divorced publisher, Rose Collins (Susan Sarandon), needsa miracle to improve the health of her mother, interned in a hospital with Alzheimers. She feels sorry for another patient and meets his visitor. Meanwhile,Nina Vasquez (Penélope Cruz) breaks her engagement with her beloved fiancé Mike (Paul Walker) due to his suffocating jealousy, but misses him. Mike isstalked by a stranger, bartender Artie Venzuela. The poor Jules arranges to spend Christmas Eve in the hospital, where he spent the best Christmas of his lifewhen he was a teenager. The lives of some of these characters cross with others along the night.",
@@ -5593,8 +5899,11 @@ const Helper = (function() {
             "BoxOffice": "N/A",
             "Production": "Convex Group",
             "Website": "N/A"
-        },
-        {
+        }
+    },
+    {
+        "id": 99,
+        "movie": {
             "title": "The Code",
             "year": "2009",
             "summary": "In New York, the experienced art thief, Keith Ripley (Morgan Freeman), invites the bold thief fromMiami, Gabriel Martin (Antonio Banderas), to team up with him. He plans the heist of two valuable mysterious antique Faberge eggs, located in a safe, of the wellprotected Russian jewelry Romanov. Each egg is worth twenty million dollars on the black market, and Ripley needs his cut to free himself fromhis debt to a powerful mobster, known as Nicky. The reluctant Gabriel agrees to participate, after having a one night stand with Ripley'sgoddaughter Alexandra Karolin (Radha Mitchell). Meanwhile, the persistent Lieutenant Weber, who has unsuccessfully tried to put Ripley in jail for twenty years,figures out how to anticipate the movements of the criminal in order to catch him. This film is also known as Thick As Thieves.",
@@ -5641,12 +5950,14 @@ const Helper = (function() {
             "Type": "series",
             "totalSeasons": "2"
         }
-    ]
+    }
+]
     
     return { 
-        locationList : shuffleArr(locationList),
+        locationList : locationList,
         shuffle,
-        returnNNumMovies
+        returnNNumMovies,
+        getMovieById
     }
 }());
 

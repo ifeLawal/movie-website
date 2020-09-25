@@ -9,11 +9,15 @@ const defaultHeaders = {
 
 const AUTH_TOKEN = "Auth_token";
 
+// setup our parameters to be in a proper url format where the queries are appended to each other using &
+// this means we want to check if we already have the ? indicating a query
+// so we do not duplicate it
 const queryParams = (params) => 
     Object.keys(params)
     .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
     .join('&');
 
+// build the URL using any query parameters we might need
 const completeUrl = (path, query={}) => {
     let url = `${BASE_URL}${path}`;
     // query is for making a request that needs headers and stuff
@@ -24,6 +28,7 @@ const completeUrl = (path, query={}) => {
     return url;
 }
 
+// setup any options we might need to get the data from our API
 const makeFetchOpts = (opts={headers:{}}) => {
     const userHeaders = opts.headers;
     delete opts.headers;
@@ -34,6 +39,8 @@ const makeFetchOpts = (opts={headers:{}}) => {
     return {...defaultFetchOpts, ...opts, headers};
 }
     
+// get the json data from the movie api
+// 
 export const makeFetch = (path, opts={}) => {
     const url = completeUrl(path, opts.query);
     const fetchOpts = makeFetchOpts(opts);
@@ -44,7 +51,10 @@ export const makeFetch = (path, opts={}) => {
             throw new Error(err);
         }) 
 }
+
+// 
 export const makeAuthFetch = (path, opts={}, useFake=false) => {
+    const fakeNumberOfMovies = 30;
     if(!useFake) {
         const fetchOpts = {
             ...opts,
@@ -53,6 +63,11 @@ export const makeAuthFetch = (path, opts={}, useFake=false) => {
             }
         }
         return makeFetch(path, fetchOpts);
+    } else if(path === '/config') {
+        return Promise.resolve([{value:true}]);
+    } else if(!!path.match(/\d/)) {
+        const movieId = parseInt(path.match(/\d/g).join(''));
+        return Promise.resolve(Helper.getMovieById(movieId))
     }
-    return Helper.locationList;
+    return Promise.resolve(Helper.returnNNumMovies(fakeNumberOfMovies));
 }

@@ -432,12 +432,66 @@ body, #root, .app, .wrapper {
           text-decoration: underline;
         }
 
+@media (max-width: 480px) {
+
+  .sidebar ul {
+        padding-left: 0px;
+        margin-left: 0px
+  }
+    }
+
 @media (min-width: 480px) {
 
 .sidebar {
     margin-right: 15px
 }
   }
+
+.poster_list {
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between
+}
+
+@media (min-width: 480px) {
+
+.poster_list {
+        align-self: stretch;
+        align-items: flex-start
+}
+    }
+
+.poster_list .poster {
+        flex: 0;
+        flex-direction: column;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-self: center;
+        margin: 30px 30px
+    }
+
+@media (min-width: 480px) {
+
+    .poster_list .poster {
+            align-self: stretch;
+            word-wrap: break-word
+    }
+        }
+
+.poster_list .poster img {
+            border-radius: 5px;
+            align-self: center;
+        }
+
+.poster_list .poster .details {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 10px 0;
+            font-size: 0.8em;
+        }
 
 body {
     border: 1px solid rgba(204, 77, 77, 1);

@@ -2,8 +2,6 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 
 const isActive = (match, location) => {
-    console.log("Match is", match);
-    console.log("Location is", location);
     return match && match.url === location.pathname;
 }
 

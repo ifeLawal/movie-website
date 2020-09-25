@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { pageWithLayout } from '../../containers/page'
 import { Button } from 'react-bootstrap'
+
+import { pageWithLayout } from '../../containers/page'
 
 export const About = () => {
     return (
@@ -12,4 +13,4 @@ export const About = () => {
     )
 }
 
-export default pageWithLayout(About)
+export default About

@@ -25,6 +25,10 @@
         }
       }
     }
+    @media (max-width: $large-screen) {
+        padding-left: 0px;
+        margin-left: 0px;
+    }
   }
 
   @media (min-width: $large-screen) {

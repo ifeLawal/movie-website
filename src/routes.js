@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    Route
+    Route, Switch
 } from 'react-router-dom'
 
 import {
@@ -8,22 +8,17 @@ import {
 } from './containers/page'
 
 import Home from './views/Home/Home'
-import About from './views/About/About'
 
 export const Routes = (props) => {
     return (
-            <div className="app">
+            <Switch className="app">
                 <Route 
-                    path="/" exact
-                    component={Home}
-                />          
-                <Route
-                    path="/about"
+                    path="/"
                     render={(renderProps) => 
-                        <About {...props} {...renderProps} />
+                        <Home {...props} {...renderProps} />
                     }
-                />
-            </div>
+                />          
+            </Switch>
     )
 }
 
